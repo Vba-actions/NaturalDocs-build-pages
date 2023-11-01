@@ -7,12 +7,15 @@ inputs:
   config:
     description: 'Path to config file.'
     default: ".nd_project.txt"
+  version:
+    description: 'NaturalDocs version to install.'
+    default: "2.3"
 runs:
   using: "composite"
   steps:
     - run: |
         sudo apt-get install -qq mono-complete
-        wget -q https://www.naturaldocs.org/download/natural_docs/2.3/Natural_Docs_2.3.zip -O /tmp/ND.zip
+        wget -q https://www.naturaldocs.org/download/natural_docs/${{ input.version }}/Natural_Docs_${{ input.version }}.zip -O /tmp/ND.zip
         unzip /tmp/ND.zip -d /tmp
       shell: bash
     - run: |
