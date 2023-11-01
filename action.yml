@@ -12,7 +12,7 @@ runs:
   steps:
     - run: |
         sudo apt-get install -qq mono-complete
-        wget https://www.naturaldocs.org/download/natural_docs/2.3/Natural_Docs_2.3.zip -O /tmp/ND.zip
+        wget -q https://www.naturaldocs.org/download/natural_docs/2.3/Natural_Docs_2.3.zip -O /tmp/ND.zip
         unzip /tmp/ND.zip -d /tmp
       shell: bash
     - run: |
@@ -20,7 +20,7 @@ runs:
         mkdir ${{ github.workspace }}/.ND_Config
         cp ${{ github.workspace }}/.nd_project.txt ${{ github.workspace }}/.ND_Config/Project.txt
       shell: bash
-      - run: |
-          mono /tmp/Natural\ Docs/NaturalDocs.exe ${{ github.workspace }}/.ND_Config
-        shell: bash
+    - run: |
+        mono /tmp/Natural\ Docs/NaturalDocs.exe ${{ github.workspace }}/.ND_Config
+      shell: bash
       
