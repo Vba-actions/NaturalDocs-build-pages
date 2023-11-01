@@ -15,7 +15,7 @@ runs:
   steps:
     - run: |
         sudo apt-get install -qq mono-complete
-        wget -q https://www.naturaldocs.org/download/natural_docs/${{ input.version }}/Natural_Docs_${{ input.version }}.zip -O /tmp/ND.zip
+        wget -q https://www.naturaldocs.org/download/natural_docs/${{ inputs.version }}/Natural_Docs_${{ inputs.version }}.zip -O /tmp/ND.zip
         unzip /tmp/ND.zip -d /tmp
       shell: bash
     - run: |
